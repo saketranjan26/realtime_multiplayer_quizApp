@@ -15,7 +15,7 @@ const authMiddleware = (req:Request,res:Response,next:NextFunction)=>{
     const token = authHeader.split(' ')[1];
     
     try{
-    const decodedData = jwt.sign(token,"jwtSecret")
+    const decodedData = jwt.verify(token,"COSMOS")
     next();
     }catch(e){
         return res.status(403).json({

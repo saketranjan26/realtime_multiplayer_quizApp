@@ -23,7 +23,7 @@ model User {
 
 model Quiz {
   id String @id @default(uuid())
-  name String @unique
+  name String 
   questions Question[]
   author User @relation(fields: [authorId],references: [id])
   authorId String
@@ -36,7 +36,7 @@ model Question {
   optionB String
   optionC String
   optionD String
-  correctAnswer String
+  correctOption String
   quiz Quiz @relation(fields: [quizId],references: [id])
   quizId String
 }
